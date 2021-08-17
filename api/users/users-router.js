@@ -32,7 +32,7 @@ router.get('/', restricted, async (req, res , next)=>{
  try{
   const users = await User.find()
   res.json(users)
- } catch(error){
+ } catch (error){
    next(error)
  }
 })
