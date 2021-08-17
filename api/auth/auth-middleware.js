@@ -7,7 +7,8 @@
   }
 */
 function restricted() {
-
+  console.log('restricted')
+  next()
 }
 
 /*
@@ -15,11 +16,11 @@ function restricted() {
 
   status 422
   {
-    "message": "Username taken"
+     "message": "Username taken"
   }
 */
 function checkUsernameFree() {
-
+  next()
 }
 
 /*
@@ -27,11 +28,11 @@ function checkUsernameFree() {
 
   status 401
   {
-    "message": "Invalid credentials"
+     "message": "Invalid credentials"
   }
 */
 function checkUsernameExists() {
-
+  next()
 }
 
 /*
@@ -39,11 +40,17 @@ function checkUsernameExists() {
 
   status 422
   {
-    "message": "Password must be longer than 3 chars"
+      "message": "Password must be longer than 3 chars"
   }
 */
 function checkPasswordLength() {
-
+  next()
 }
 
 // Don't forget to add these to the `exports` object so they can be required in other modules
+module.exports = {
+  restricted,
+  checkUsernameFree,
+checkUsernameExists,
+checkPasswordLength,
+}
